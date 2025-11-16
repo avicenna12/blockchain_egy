@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blockchain Simulator - Versi Simpel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="style4.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <button id="tab-home" class="active">Home</button>
+      <button id="tab-about">About Me</button>
+      <button id="tab-hash">Hash</button>
+      <button id="tab-block">Block</button>
+      <button id="tab-chain">Block Chain</button>
+      <button id="tab-ecc">ECC Signature</button>
+      <button id="tab-consensus">Konsensus</button>
+    </div>
+
+    <div id="page-home" class="page active">
+      <h2>Workshop Teknologi Blockchain</h2>
+      <p><b>Selamat datang di Website Pembelajaran Blockchain Interaktif!</b></p>
+      <p>
+        Website ini dirancang untuk membantu memahami konsep dasar
+        <i>Blockchain Technology</i> secara praktis melalui simulasi.
+      </p>
+
+      <h3>📘 Petunjuk Penggunaan</h3>
+      <ul>
+        <li><b>Hash:</b> Coba ubah teks dan lihat hasil hash SHA-256-nya.</li>
+        <li><b>Block:</b> Simulasi proses mining pada satu block.</li>
+        <li><b>Blockchain:</b> Bangun rantai block dan lihat keterkaitannya.</li>
+        <li><b>ECC Signature:</b> Pelajari cara kerja tanda tangan digital (ECDSA).</li>
+        <li><b>Konsensus:</b> Simulasikan sistem multi-node dan proses penyamaan data antar node.</li>
+      </ul>
+
+      <h3>📚 Dasar Teori Singkat</h3>
+      <p>
+        <b>Blockchain</b> adalah teknologi penyimpanan data terdistribusi yang aman,
+        transparan, dan tidak dapat diubah tanpa konsensus dari semua pihak di jaringan.
+        Setiap block berisi data transaksi, hash unik, dan hash block sebelumnya sehingga
+        membentuk rantai (chain) yang saling terhubung.
+      </p>
+
+      <div id="datetime" class="datetime"></div>
+    </div>
+    
+    <div id="page-about" class="page">
+      <h2 class="about-title">Septian Egy Ardiansyah</h2>
+      
+      <div class="section">
+        <h3>PROFIL</h3>
+        <div class="about-container">
+          <img src="egy.jpg" alt="Foto Profil" class="profile-pic" />
+          <div class="cv-info">
+            <p>
+              Mahasiswa aktif Politeknik Elektronika Negeri Surabaya yang sedang menekuni
+              dunia musik sebagai DJ dengan spesialisasi genre Funkot. Terbiasa bekerja
+              dalam tim, disiplin, dan terbuka terhadap pengalaman baru baik di bidang
+              akademik maupun industri hiburan.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h3>RIWAYAT PENDIDIKAN</h3>
+        <div class="exp-box">
+          <p><b>Politeknik Elektronika Negeri Surabaya</b> (2023-Sekarang)</p>
+          <p class="detail">D4 Teknologi Rekayasa Multimedia</p>
+        </div>
+        <div class="exp-box">
+          <p><b>SMAN Kesamben</b> (2020-2023)</p>
+          <p class="detail">Ilmu Pengetahuan Alam</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>KETERAMPILAN TEKNIS</h3>
+        <div class="exp-box">
+          <ul>
+            <li>Menguasai bahasa pemrograman</li>
+            <li>Dasar Editing dan Desain</li>
+            <li>DJ Mixing</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h3>KETERAMPILAN NON-TEKNIS</h3>
+        <div class="exp-box">
+          <ul>
+            <li>Komunikasi</li>
+            <li>Kolaborasi dalam tim</li>
+            <li>Berpikir kritis</li>
+            <li>Kreativitas & Improvisasi</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h3>PENGALAMAN ORGANISASI</h3>
+        <div class="exp-box">
+          <p><b>Anggota - Himpunan Mahasiswa</b> (2023 - 2024)</p>
+          <ul>
+            <li>Bertanggung jawab terhadap semua kegiatan Himpunan Mahasiswa.</li>
+            <li>Meningkatkan efektivitas organisasi sehingga dapat mengurangi pengeluaran internal sebesar 10%.</li>
+            <li>Berkolaborasi dengan alumni untuk menyelenggarakan acara.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h3>PENGALAMAN</h3>
+        <div class="exp-box">
+          <p><b>Sekolah DJ - IBX Management by Ibiza</b> (2024 - 2025)</p>
+          <ul>
+            <li>Mempelajari teknik DJ mixing, manajemen lagu, dan performa panggung.</li>
+            <li>Mendapat pelatihan langsung dari mentor profesional.</li>
+          </ul>
+        </div>
+        <div class="exp-box">
+          <p><b>Trail Perform live at Ibiza group</b> (2025 - sekarang)</p>
+          <ul>
+            <li>Melakukan performa DJ secara live di Ibiza Group Surabaya.</li>
+            <li>Membawakan genre Funkot dan berinteraksi dengan audiens.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h3>KONTAK</h3>
+        <div class="contact-info-container">
+          <div class="contact-info-box">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Alamat</h4>
+              <p>Surabaya, Jawa Timur</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-box">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>egy794septian@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-box">
+            <div class="contact-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Instagram</h4>
+              <p>@egyardiansyah_</p>
+            </div>
+          </div>
+        </div>
+        
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31659.8113180425!2d112.72337188151248!3d-7.299066514728518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbdfa9c0f53d%3A0x1c3135db7e9c9c8e!2sSurabaya%2C%20Surabaya%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1678888888888!5m2!1sen!2sid"
+          width="100%"
+          height="350"
+          style="border: 0; border-radius: 4px; margin-top: 10px"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <h3 style="margin-top: 25px;">Hubungi Saya</h3>
+        <form class="contact-form" action="mailto:[Email_Anda]@gmail.com" method="get" enctype="text/plain">
+          <input type="text" name="subject" placeholder="Subjek Pesan" required />
+          <textarea name="body" placeholder="Isi Pesan..." rows="4" required></textarea>
+          <button type="submit">Kirim Pesan (via Email)</button>
+        </form>
+      </div>
+    </div>
+    
+    <div id="page-hash" class="page">
+      <h2>Hash Generator</h2>
+      <label for="hash-input">Text Input:</label>
+      <textarea id="hash-input" rows="4"></textarea>
+      <label>SHA-256 Hash:</label>
+      <div id="hash-output" class="output"></div>
+    </div>
+
+    <div id="page-block" class="page">
+      <h2>Single Block</h2>
+      <label for="block-number"># (Nomor Block):</label>
+      <input id="block-number" type="number" min="0" value="0" />
+      <label for="block-data">Data:</label>
+      <textarea id="block-data" rows="4"></textarea>
+      <label for="block-nonce">Nonce:</label>
+      <input id="block-nonce" type="text" maxlength="9" />
+      <label for="block-timestamp">Timestamp:</label>
+      <input id="block-timestamp" type="text" readonly />
+      <label>Hash:</label>
+      <div id="block-hash" class="output"></div>
+      <button id="btn-mine" class="mine">Mine</button>
+      <label for="speed-control">Kecepatan Mining:</label>
+      <select id="speed-control">
+        <option value="1">Normal</option>
+        <option value="10">10x Lebih Cepat</option>
+        <option value="50">50x Lebih Cepat</option>
+      </select>
+      <div id="mining-status" class="status"></div>
+    </div>
+
+    <div id="page-chain" class="page">
+      <h2>Blockchain</h2>
+      <div class="chain-controls">
+        <button id="btn-add-block">Add Block</button>
+      </div>
+      <div id="blockchain" class="chain-container">
+        </div>
+    </div>
+
+    <div id="page-ecc" class="page">
+      <h2>Verifikasi ECC Digital Signature</h2>
+      <button id="btn-generate-key">Generate Key Pair</button>
+      <p style="font-size: 13px; color: #6c757d;">Public Key dan Private Key dapat diedit untuk percobaan.</p>
+      <label>Public Key:</label>
+      <textarea id="ecc-public" rows="3"></textarea>
+      <label>Private Key:</label>
+      <textarea id="ecc-private" rows="3"></textarea>
+      <hr style="border-top: 1px solid var(--border-color); margin: 20px 0;" />
+      <label>Pesan yang akan ditandatangani:</label>
+      <textarea id="ecc-message" rows="3"></textarea>
+      <button id="btn-sign">Sign Message</button>
+      <label>Hasil Signature (DER hex):</label>
+      <textarea id="ecc-signature" rows="3" readonly></textarea>
+      <hr style="border-top: 1px solid var(--border-color); margin: 20px 0;" />
+      <button id="btn-verify">Verify Signature</button>
+      <div id="ecc-verify-result" class="output"></div>
+    </div>
+
+    <div id="page-consensus" class="page">
+      <h2>Simulasi Konsensus</h2>
+      <h3>Dompet User</h3>
+      <div class="wallets">
+        <div class="wallet" data-user="A">
+          <h3>User A</h3>
+          <div>Saldo: <span id="saldo-A">100</span></div>
+          <label for="receiver-A">Penerima:</label>
+          <select id="receiver-A">
+            <option value="B">User B</option>
+            <option value="C">User C</option>
+          </select>
+          <label for="amount-A">Jumlah:</label>
+          <input id="amount-A" type="number" min="1" value="10" />
+          <button id="send-A">Kirim</button>
+        </div>
+        <div class="wallet" data-user="B">
+          <h3>User B</h3>
+          <div>Saldo: <span id="saldo-B">100</span></div>
+          <label for="receiver-B">Penerima:</label>
+          <select id="receiver-B">
+            <option value="A">User A</option>
+            <option value="C">User C</option>
+          </select>
+          <label for="amount-B">Jumlah:</label>
+          <input id="amount-B" type="number" min="1" value="10" />
+          <button id="send-B">Kirim</button>
+        </div>
+        <div class="wallet" data-user="C">
+          <h3>User C</h3>
+          <div>Saldo: <span id="saldo-C">100</span></div>
+          <label for="receiver-C">Penerima:</label>
+          <select id="receiver-C">
+            <option value="A">User A</option>
+            <option value="B">User B</option>
+          </select>
+          <label for="amount-C">Jumlah:</label>
+          <input id="amount-C" type="number" min="1" value="10" />
+          <button id="send-C">Kirim</button>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: 25px;">Mempool (Pending Transactions)</h3>
+      <div>
+        <textarea
+          id="mempool"
+          rows="3"
+          placeholder="Setiap transaksi di baris baru. Contoh: A -> B:10"
+        ></textarea>
+      </div>
+      
+      <div style="margin-top: 15px;">
+        <button id="btn-mine-all" class="mine">Mine Semua Transaksi</button>
+        <button id="btn-verify-consensus" style="background: var(--success-color);">Verify</button>
+        <button id="btn-consensus">Consensus (Pilih Rantai Terpanjang)</button>
+      </div>
+      
+      <h3 style="margin-top: 30px">Blockchain Tiap User</h3>
+      <p style="font-size: 13px; color: #6c757d;">Geser horizontal untuk melihat rantai block.</p>
+      
+      <div id="chains">
+        <h4>Database User A</h4>
+        <div id="chain-A" class="chain-row"></div>
+        <h4>Database User B</h4>
+        <div id="chain-B" class="chain-row"></div>
+        <h4>Database User C</h4>
+        <div id="chain-C" class="chain-row"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        © 2025 Septian Egy Ardiansyah
+      </div>
+      <div class="footer-text">
+        <p>081515056358 I egy794septian@gmail.com</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
+    <script src="app4.js"></script>
+  </body>
+</html>

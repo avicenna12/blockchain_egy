@@ -1,0 +1,342 @@
+/* Warna Dasar Tosca */
+:root {
+    --primary-color: #00ADB5; /* Tosca */
+    --primary-dark: #008f96;
+    --primary-light: #e6ffff; /* Latar belakang cerah untuk blok */
+    --text-color: #333;
+    --dark-text: #1a1f36;
+    --mine-color: #ffb03a; /* Oranye untuk aksi "Mine" */
+    --success-color: #28a745; /* Hijau untuk valid */
+    --invalid-color: #d9534f; /* Merah untuk tidak valid */
+    --border-color: #e0e4eb;
+    --bg-light: #f9fbfd;
+}
+
+/* ======================= GLOBAL & RESET ======================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5; 
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h2 {
+    color: var(--dark-text);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+h3 {
+    color: var(--dark-text);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ======================= PAGE WRAPPER & CONTAINER ======================= */
+.page {
+    display: none;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    margin: 20px auto; /* Tambahkan auto untuk centering */
+    max-width: 1200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Bayangan lebih tipis */
+    animation: fadeIn 0.3s ease;
+}
+
+.page.active { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================= NAVBAR (Simpel & Solid) ======================= */
+.navbar {
+    display: flex;
+    background: var(--primary-color);
+    padding: 0; /* Padding dihilangkan, diberikan ke button */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar button {
+    flex: 1;
+    padding: 14px 8px; /* Padding lebih besar */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s ease, border-bottom 0.2s;
+    border-radius: 0; /* Menghilangkan border-radius */
+}
+
+.navbar button:hover:not(.active) {
+    background: var(--primary-dark);
+}
+
+.navbar button.active {
+    background: var(--primary-dark); /* Warna aktif yang sama dengan hover, tapi lebih solid */
+    border-bottom: 3px solid white; /* Penanda aktif putih tebal */
+    font-weight: 600;
+}
+
+/* ======================= INPUTS, TEXTAREAS, & OUTPUTS ======================= */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: white;
+    font-size: 14px;
+    margin-top: 0;
+    box-sizing: border-box; 
+    font-family: monospace; /* Untuk Hash/Key */
+}
+
+input[type="number"] { font-family: 'Poppins', sans-serif; } /* Nonce/Amount tetap monospace, ini untuk No.Block */
+
+textarea { resize: vertical; min-height: 80px; }
+
+/* Output Hash */
+.output {
+    background: var(--bg-light); 
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-family: monospace;
+    word-break: break-all;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    color: #495057;
+}
+
+/* Status Validasi */
+.output.valid { background: #e9f7eb; border-color: var(--success-color); color: var(--success-color); font-weight: 600; }
+.output.invalid { background: #fde8e8; border-color: var(--invalid-color); color: var(--invalid-color); font-weight: 600; }
+
+/* ======================= BUTTONS ======================= */
+button {
+    padding: 10px 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+button:hover { background: var(--primary-dark); }
+button.mine, #btn-generate-key, #btn-sign {
+    background: var(--mine-color); /* Aksi utama Mine/Generate/Sign */
+    color: var(--dark-text);
+}
+button.mine:hover, #btn-generate-key:hover, #btn-sign:hover { background: var(--mine-dark); }
+
+#btn-verify { background: var(--success-color); }
+#btn-verify:hover { background: #218838; }
+
+/* Status Mining */
+.status {
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 13px;
+    min-height: 20px;
+}
+
+/* ======================= HOME PAGE ======================= */
+.datetime {
+    margin-top: 25px;
+    padding: 10px;
+    background: var(--primary-light);
+    border-left: 5px solid var(--primary-color);
+    font-weight: 600;
+    color: var(--dark-text);
+    border-radius: 4px;
+}
+
+/* ======================= ABOUT ME PAGE (Minimalis CV) ======================= */
+#page-about {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+}
+.about-title {
+    text-align: center;
+    font-size: 2em;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+    border-bottom: none;
+}
+.section {
+    margin-bottom: 25px;
+    padding: 0; /* Padding dipindahkan ke h3 */
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+}
+.section h3 {
+    display: block;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.about-container .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color); 
+    flex-shrink: 0;
+}
+.cv-info p { margin: 0; font-size: 14px; text-align: justify; }
+
+/* Box Pengalaman & Pendidikan */
+.exp-box {
+    background: var(--bg-light);
+    padding: 12px 15px;
+    border-left: 3px solid var(--primary-dark);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.exp-box b { color: var(--dark-text); font-size: 1em; display: block; margin-bottom: 2px; }
+.exp-box ul { padding-left: 20px; margin: 5px 0 0 0; font-size: 13px; }
+.exp-box p { margin: 2px 0; font-size: 13px; }
+
+/* Kontak Sederhana */
+.contact-info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.contact-info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-light);
+    transition: all 0.2s ease;
+}
+.contact-info-box:hover { background: white; border-color: var(--primary-color); }
+.contact-icon { color: var(--primary-dark); font-size: 20px; }
+.contact-text h4 { margin: 0; font-size: 14px; font-weight: 600; }
+.contact-text p { margin: 0; font-size: 13px; color: #555; }
+
+/* ======================= BLOCKCHAIN & CONSENSUS ======================= */
+.chain-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.chain-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 10px 0;
+    background: #f4f6f8;
+    border-radius: 4px;
+    white-space: nowrap; 
+}
+
+.chain-row .chain-block {
+    flex-shrink: 0;
+    width: 280px;
+    white-space: normal;
+    background: var(--primary-light);
+    padding: 15px;
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.chain-row .chain-block.invalid {
+    border-left: 3px solid var(--invalid-color);
+    background: #ffebeb;
+}
+.chain-row h4 { margin-top: 0; }
+.chain-row .output { font-size: 12px; padding: 8px; margin-bottom: 5px; }
+
+
+/* Konsensus */
+.wallets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.wallet {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 4px;
+}
+.wallet h3 {
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.wallet div span { font-weight: 700; color: var(--success-color); } /* Saldo */
+
+/* ======================= FOOTER ======================= */
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+.footer-logo {
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+.footer-text p {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* ======================= MEDIA QUERY ======================= */
+@media (max-width: 768px) {
+    .navbar { flex-wrap: wrap; }
+    .navbar button { flex-basis: 49%; padding: 10px; font-size: 13px; }
+    .page { margin: 10px; padding: 20px; }
+    
+    .about-container { flex-direction: column; text-align: center; }
+    .contact-info-container { grid-template-columns: 1fr; }
+    .chain-row { padding: 10px 0; } /* Hilangkan padding samping */
+    .chain-row .chain-block { width: 220px; }
+}
